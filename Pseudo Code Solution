@@ -1,0 +1,330 @@
+
+# ---------------For Web User--------------
+#Define User Class
+    class User:
+        atrributes:
+            Username
+            password
+            state
+
+
+#Initialize User
+
+class WebUser:
+    attributes:
+        login_id: string
+        password: string
+        state: string
+    
+    methods:
+        constructor(login_id, password):
+            this.login_id = login_id
+            this.password = password
+            this.state = "active"  // Default state is set to "active"
+        
+        getLoginId():
+            return this.login_id
+        
+        getState():
+            return this.state
+        
+        setState(newState):
+            this.state = newState
+        
+        validatePassword(inputPassword):
+            return this.password == inputPassword
+
+# Define Function to log in
+    function login(username, password):
+        if validate_credentials(username, password):
+            current user.state= "logged in"
+            print "Logged in successfully as", username
+        else:
+            print "Invalid username or password"
+
+# Define function to validate credentials
+    function validate_credentials(username, password):
+        # Simulate credential validation
+        return username == "user123" and password == "password123"
+
+            
+
+
+# --------------Showing the cart(Shopping cart)-----------------------
+class Item:
+    attributes:
+        name: string
+        price: decimal
+    
+    methods:
+        constructor(name, price):
+            this.name = name
+            this.price = price
+        
+        getPrice():
+            return this.price
+
+class ShoppingCart:
+    attributes:
+        items: list of Items
+        date: date
+    
+    methods:
+        constructor():
+            this.items = empty list
+            this.date = current date and time
+        
+        addItem(item, quantity):
+            // Create a dictionary to store item and quantity
+            itemInfo = {"item": item, "quantity": quantity}
+            this.items.add(itemInfo)
+        
+        removeItem(item):
+            // Iterate over items and remove the specified item
+            for each itemInfo in this.items:
+                if itemInfo["item"] == item:
+                    this.items.remove(itemInfo)
+                    break
+        
+        getTotalPrice():
+            total = 0
+            for each itemInfo in this.items:
+                total += itemInfo["item"].getPrice() * itemInfo["quantity"]
+            return total
+        
+        getDate():
+            return this.date
+
+
+
+# ---------------Customer Block-------------------------------------
+        class CustomerAccount:
+            attributes:
+                id: integer
+                address: string
+                phone: string
+                email: string
+
+            methods:
+                constructor(id, address, phone, email):
+                    this.id = id
+                    this.address = address
+                    this.phone = phone
+                    this.email = email
+
+                getId():
+                    return this.id
+
+                getAddress():
+                    return this.address
+
+                getPhone():
+                    return this.phone
+
+                getEmail():
+                    return this.email
+
+                setAddress(newAddress):
+                    this.address = newAddress
+
+                setPhone(newPhone):
+                    this.phone = newPhone
+
+                setEmail(newEmail):
+                    this.email = newEmail
+
+
+
+#----------------Shopping Cart------------------------
+class Item:
+    attributes:
+        name: string
+        price: decimal
+    
+    methods:
+        constructor(name, price):
+            this.name = name
+            this.price = price
+        
+        getPrice():
+            return this.price
+
+class ShoppingCart:
+    attributes:
+        items: list of Item
+        date: date
+    
+    methods:
+        constructor():
+            this.items = empty list
+            this.date = current date and time
+        
+        addItem(item, quantity):
+            // Create a dictionary to store item and quantity
+            itemInfo = {"item": item, "quantity": quantity}
+            this.items.add(itemInfo)
+        
+        removeItem(item):
+            // Iterate over items and remove the specified item
+            for each itemInfo in this.items:
+                if itemInfo["item"] == item:
+                    this.items.remove(itemInfo)
+                    break
+        
+        getTotalPrice():
+            total = 0
+            for each itemInfo in this.items:
+                total += itemInfo["item"].getPrice() * itemInfo["quantity"]
+            return total
+        
+        getDate():
+            return this.date
+
+
+# --------------Product-------------------------------
+class Supplier:
+    attributes:
+        id: integer
+        name: string
+    
+    methods:
+        constructor(id, name):
+            this.id = id
+            this.name = name
+
+class Product:
+    attributes:
+        id: integer
+        name: string
+        supplier: Supplier
+    
+    methods:
+        constructor(id, name, supplier):
+            this.id = id
+            this.name = name
+            this.supplier = supplier
+        
+        getId():
+            return this.id
+        
+        getName():
+            return this.name
+        
+        getSupplier():
+            return this.supplier
+
+
+# --------------Order Block------------------------
+class Order:
+    attributes:
+        number: string
+        ordered: date
+        shipped: date
+        shippingInfo: string
+        status: string
+        total: decimal
+    
+    methods:
+        constructor(number, ordered, total):
+            this.number = number
+            this.ordered = ordered
+            this.shipped = null
+            this.shippingInfo = ""
+            this.status = "Pending"
+            this.total = total
+        
+        getNumber():
+            return this.number
+        
+        getOrdered():
+            return this.ordered
+        
+        getShipped():
+            return this.shipped
+        
+        getShippingInfo():
+            return this.shippingInfo
+        
+        getStatus():
+            return this.status
+        
+        getTotal():
+            return this.total
+        
+        shipOrder(shippingDate, shippingInfo):
+            this.shipped = shippingDate
+            this.shippingInfo = shippingInfo
+            this.status = "Shipped"
+        
+        cancelOrder():
+            this.status = "Cancelled"
+
+
+# ---------Account Detail----------------------------
+class Account:
+    attributes:
+        id: string
+        billing_address: string
+        is_closed: boolean
+        open_date: date
+        closed_date: date
+    
+    methods:
+        constructor(id, billing_address):
+            this.id = id
+            this.billing_address = billing_address
+            this.is_closed = false
+            this.open_date = current date and time
+            this.closed_date = null
+        
+        getId():
+            return this.id
+        
+        getBillingAddress():
+            return this.billing_address
+        
+        isOpen():
+            return not this.is_closed
+        
+        getOpenDate():
+            return this.open_date
+        
+        getClosedDate():
+            return this.closed_date
+        
+        closeAccount():
+            if not this.is_closed:
+                this.is_closed = true
+                this.closed_date = current date and time
+
+
+# -------------------Payment Detail----------------
+class Payment:
+    attributes:
+        id: string
+        paid: decimal
+        total: decimal
+        details: string
+    
+    methods:
+        constructor(id, total):
+            this.id = id
+            this.paid = 0
+            this.total = total
+            this.details = ""
+        
+        getId():
+            return this.id
+        
+        getPaid():
+            return this.paid
+        
+        getTotal():
+            return this.total
+        
+        getDetails():
+            return this.details
+        
+        makePayment(amount, paymentDetails):
+            this.paid += amount
+            this.details = paymentDetails
